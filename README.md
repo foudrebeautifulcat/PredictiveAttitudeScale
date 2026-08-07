@@ -157,7 +157,7 @@ Data cleaning involved two criteria:
 1) Items whose standard deviation fell below 30% of the theoretical maximum standard deviation (assuming a uniform distribution across response categories) were removed due to insufficient variability.
 2) Items with polychoric correlations* > 0.85 were examined for redundancy, retaining only the most theoretically relevant item from each highly correlated pair. 
 
-* Classical correlation assumes continuous variables. It is not the case with Likert scales so I use polychoric correlations to solve this issue. Polychoric correlations estimate various possible values of correlation and selects the one that would make the observed contingency table the most likely. Furthermore, items with insufficient variability (where responses were heavily concentrated on one or two response categories) were excluded, as they provide only limited ability to distinguish between respondents and undermine the estimation of polychoric correlations.
+* Classical correlation assumes continuous variables. This is not the case with Likert scales so I use polychoric correlations to solve this issue. Polychoric correlations estimate various possible values of correlation and selects the one that would make the observed contingency table the most likely. Furthermore, items with insufficient variability (where responses were heavily concentrated on one or two response categories) were excluded, as they provide only limited ability to distinguish between respondents and undermine the estimation of polychoric correlations.
 
 
 
@@ -533,11 +533,6 @@ The plot's code is from the website [tidytextmining.com](https://www.tidytextmin
 
 The plan of this mini project is, then, to validate and adapt this scale if needed. For that, convergent and discriminant validity will be assessed before the Confirmatory factor analysis. In addition, to improve the feasibility of this scale, it would be interesting to propose a short scale by either reducing the items or proposing to separate the dimensions depending on what you need to study. Following CFA validation, three hierarchical regression models will be compared to assess the predictive power of gender ideologies: model 1 (Baseline): ART attitude ~ Gender; model 2 (gender Ideology Factors (F1 – F4) + gender; model 3 (full): ART attitude ~ Gender Ideology + gender + socio demographics + ART control variables. Model comparison will use ΔR² and F-tests to quantify the unique contribution of gender ideologies beyond sex and socio-demographic factors. Dominance analysis (Luchman, 2021) will decompose the variance explained by each predictor.
 
-```{r}
-test the scale
-```
-
-
 
 # Contribution
 
@@ -547,21 +542,21 @@ This mini project can be adapted into a doctoral thesis through three avenues: 1
 
 
 # bibliography
-Blondé, J., Gianettoni, L., & Gross, D. (n.d.). Measurement of Sexism, Gender Identity, and Perceived Gender Discrimination: A Brief Overview and Suggestions for Short Scales.
-Bauer, G. R., Braimoh, J., Scheim, A. I., & Dharma, C. (2017). Transgender-inclusive measures of sex/gender for population surveys: Mixed-methods evaluation and recommendations. PLOS ONE, 12(5), e0178043. https://doi.org/10.1371/journal.pone.0178043
-Bornatici C., Felder M., Gianettoni L., Mordasini R., & Steinmetz S. (2025). Measuring assigned sex, gender identity, and sexual orientation in population surveys. FORS Guides, 26, Version 1.0, 1-44. https://doi.org/10.24449/FG-2025-00026
-Büchler 2017 : Büchler, A. (2017). Reproduktive Autonomie und Selbstbestimmung. Dimensionen, Umfang und Grenzen an den Anfängen menschlichen Lebens (2. Auflage). Basel: Helbing Lichtenhahn Verlag. 
-Cameron, J. J., & Stinson, D. A. (2019). Gender (mis)measurement: Guidelines for respecting gender diversity in psychological research. Social and Personality Psychology Compass, 13(11), e12506. https://doi.org/10.1111/spc3.12506
-Chonody (2013) : Chonody J. M. (2013). Measuring sexual prejudice against gay men and lesbian women: Development of the Sexual Prejudice Scale (SPS). Journal of Homosexuality, 60(6), 895–926. doi:10.1080/00918369.2013.774863 
-Glick, P., & Fiske, S. T. (1996). The Ambivalent Sexism Inventory: Differentiating hostile and benevolent sexism. Journal of Personality and Social Psychology, 70(3), 491-512. https://doi.org/10.1037/0022-3514.70.3.491 
-Glick, P., & Fiske, S. T. (1999). The Ambivalence toward Men Inventory: Differentiating hostile and benevolent beliefs about men. Psychology of Women Quarterly, 23(3), 519 536. https://doi.org/10.1111/j.1471-6402.1999.tb00379.x
+* Blondé, J., Gianettoni, L., & Gross, D. (n.d.). Measurement of Sexism, Gender Identity, and Perceived Gender Discrimination: A Brief Overview and Suggestions for Short Scales.
+* Bauer, G. R., Braimoh, J., Scheim, A. I., & Dharma, C. (2017). Transgender-inclusive measures of sex/gender for population surveys: Mixed-methods evaluation and recommendations. PLOS ONE, 12(5), e0178043. https://doi.org/10.1371/journal.pone.0178043
+* Bornatici C., Felder M., Gianettoni L., Mordasini R., & Steinmetz S. (2025). Measuring assigned sex, gender identity, and sexual orientation in population surveys. FORS Guides, 26, Version 1.0, 1-44. https://doi.org/10.24449/FG-2025-00026
+* Büchler 2017 : Büchler, A. (2017). Reproduktive Autonomie und Selbstbestimmung. Dimensionen, Umfang und Grenzen an den Anfängen menschlichen Lebens (2. Auflage). Basel: Helbing Lichtenhahn Verlag. 
+* Cameron, J. J., & Stinson, D. A. (2019). Gender (mis)measurement: Guidelines for respecting gender diversity in psychological research. Social and Personality Psychology Compass, 13(11), e12506. https://doi.org/10.1111/spc3.12506
+* Chonody (2013) : Chonody J. M. (2013). Measuring sexual prejudice against gay men and lesbian women: Development of the Sexual Prejudice Scale (SPS). Journal of Homosexuality, 60(6), 895–926. doi:10.1080/00918369.2013.774863 
+* Glick, P., & Fiske, S. T. (1996). The Ambivalent Sexism Inventory: Differentiating hostile and benevolent sexism. Journal of Personality and Social * Psychology, 70(3), 491-512. https://doi.org/10.1037/0022-3514.70.3.491 
+* Glick, P., & Fiske, S. T. (1999). The Ambivalence toward Men Inventory: Differentiating hostile and benevolent beliefs about men. Psychology of Women Quarterly, 23(3), 519 536. https://doi.org/10.1111/j.1471-6402.1999.tb00379.x
 (FSO, 2019 : FSO (Federal Statistical Office) (2019). Enquête sur les familles et les générations 2018 – Questionnaire. 
-Kostenzer, J., A. M.E. Bos, A. de Bont and J. van Exel (2021). Unveiling the Controversy on Egg Freezing in The Netherlands: A Q-Methodology Study on Women’s Viewpoints. Reproductive Biomedicine & Society Online 12: 32-43. 
-Luchman, J. N. (2021). Determining relative importance in Stata using dominance analysis: Domin and domme. The Stata Journal, 21(2), 510–538. https://doi.org/10.1177/1536867X211025837
-Nießen, D., Schmidt, I., Beierlein, C., & Lechner, C. M., 2019: Nießen, D., Schmidt, I., Beierlein, C., & Lechner, C. M. (2019). Authoritarianism Short Scale (KSA-3). Zusammenstellung sozialwissenschaftlicher Items und Skalen (ZIS). https://doi.org/10.6102/zis272 
-Salah, H. B., Wernli, B., & Henchoz, C. (2017). Les nouvelles masculinités en Suisse: Une approche par l’idéologie de genre et la répartition du travail rémunéré et non rémunéré au sein des couples. In Enfances, Familles, Générations. Enfances, Familles, Générations. https://doi.org/10.7202/1041058ar
-Tougas et al., 1995 : Tougas, F., Brown, R., Beaton, A. M., & Joly, S. (1995). 
-Walter, J. G. (2018). Measures of gender role attitudes under revision: The example of the German General Social Survey. Social Science Research, 72, 170-182. doi:10.1016/j.ssresearch.2018.02.009
-Yamamoto et al. 2018 (Q15): Yamamoto, N., T. Hirata, G. Izumi, A. Nakazawa, S. Fukuda, K. Neriishi, et al. (2018). A survey of public attitudes towards third-party reproduction in Japan in 2014. PLoS One 13(10): e0198499. 
-Zehnter et al., 2021 : Zehnter, M. K., Manzi, F., Shrout, P. E., & Heilman, M. E. (2021). Belief in sexism shift: Defining a new form of contemporary sexism and introducing the belief in sexism shift scale (BSS scale). PloS one, 16(3), e0248374. https://doi.org/10.1371/journal.pone.0248374
+* Kostenzer, J., A. M.E. Bos, A. de Bont and J. van Exel (2021). Unveiling the Controversy on Egg Freezing in The Netherlands: A Q-Methodology Study on Women’s Viewpoints. Reproductive Biomedicine & Society Online 12: 32-43. 
+* Luchman, J. N. (2021). Determining relative importance in Stata using dominance analysis: Domin and domme. The Stata Journal, 21(2), 510–538. https://doi.org/10.1177/1536867X211025837
+* Nießen, D., Schmidt, I., Beierlein, C., & Lechner, C. M., 2019: Nießen, D., Schmidt, I., Beierlein, C., & Lechner, C. M. (2019). Authoritarianism Short Scale (KSA-3). Zusammenstellung sozialwissenschaftlicher Items und Skalen (ZIS). https://doi.org/10.6102/zis272 
+* Salah, H. B., Wernli, B., & Henchoz, C. (2017). Les nouvelles masculinités en Suisse: Une approche par l’idéologie de genre et la répartition du travail rémunéré et non rémunéré au sein des couples. In Enfances, Familles, Générations. Enfances, Familles, Générations. https://doi.org/10.7202/1041058ar
+* Tougas et al., 1995 : Tougas, F., Brown, R., Beaton, A. M., & Joly, S. (1995). 
+* Walter, J. G. (2018). Measures of gender role attitudes under revision: The example of the German General Social Survey. Social Science Research, 72, 170-182. doi:10.1016/j.ssresearch.2018.02.009
+* Yamamoto et al. 2018 (Q15): Yamamoto, N., T. Hirata, G. Izumi, A. Nakazawa, S. Fukuda, K. Neriishi, et al. (2018). A survey of public attitudes towards third-party reproduction in Japan in 2014. PLoS One 13(10): e0198499. 
+* Zehnter et al., 2021 : Zehnter, M. K., Manzi, F., Shrout, P. E., & Heilman, M. E. (2021). Belief in sexism shift: Defining a new form of contemporary sexism and introducing the belief in sexism shift scale (BSS scale). PloS one, 16(3), e0248374. https://doi.org/10.1371/journal.pone.0248374
 
