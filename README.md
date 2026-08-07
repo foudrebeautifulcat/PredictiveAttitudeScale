@@ -1,27 +1,4 @@
----
-title: "What you believe makes you predictable"
-author: "Coraline Guignard"
-date: "`r Sys.Date()`"
-output: html_document
-bibliography: "bibliography.bib"
----
-
-<style>
-body {
-text-align: justify}
-</style>
-
-
-```{r cars}
-library(ggplot2)
-library(tidyverse)
-library(tidytext)
-library("data.table")
-library("bibtex")
-library(knitr)
-```
-
-#Introdcution
+# Introduction
 
 ## Gender measure
 
@@ -29,9 +6,6 @@ In social science, gender is typically measured by asking individuals to classif
 themselves in binary categories (woman/man, with non-binary as an alternative). This 
 measurement presents two major limitations. First, this measurement causes an 
 inclusion issue since it does not take into account gender minorities that identify with either of them (Bauer et al, 2017; Bondé, 2017); second, this measurement should give insights into gender behavior but this assumption essentialized gender roles and missed all individuals who would differ in their assigned roles or behavior (Cameron & Stinson, 2019). Despite these limits, analyzing gender trends remains necessary to highlight inequality, as it is a consequence of the social structure. Therefore, it is important to find other indicators than the measure of women/men. 
-
-## heteronormativity (a compléter)
-
 
 
 # purpose of my research
@@ -41,14 +15,14 @@ This study proposes an alternative approach: rather than using gender identity a
 
 # Method
 
-## Theorical framework
+## Theoretical framework
 
 ### Item selection for the gender ideology scale[^note1]
 
 This study develops a gender ideology scale to predict attitudes towards politically 
-sensitive topics by using gender indicators.* From the MOSAiCH survey, I focus on gender ideology attitude that has a clear link with political opinion. Therefore, in questionnaire 1, I selected items (FAM1a to FAM14; FAM21 to FAM27) measuring gender role attitudes (Glick & Fiske, 1996; 1999), family form, meaning of marriage and children (FSO, 2019, World Values Survey 2021); and in questionnaire 2, I selected items (FAMS9_wp2 to FAMS32-wp2). measuring gender stereotypes, sexism (Swim et al., 1995; Levant et al, 2013, Touglas et al., 1995; Walter, 2018; Zehnter et alm 2021), and homophobia (Chonody, 2013). Finally, I added the items of conservatism vs progressivism (items: FAMS45a_wp2 to FAMS46c_wp2) that may mediator political attitude (Niessen, et al, 2019). I chose this panel to have representative elements that constitute the perception of the social rules of society in the sense of how men and women should behave, what constitutes a family and love, and the possibility of changing these criteria. 
+sensitive topics by using gender indicators.* From the MOSAiCH survey, I focus on gender ideology attitude that has a clear link with political opinion. Therefore, in questionnaire 1, I selected items (FAM1a to FAM14; FAM21 to FAM27) measuring gender role attitudes (Glick & Fiske, 1996; 1999), family form, meaning of marriage and children (FSO, 2019, World Values Survey 2021); and in questionnaire 2, I selected items (FAMS9_wp2 to FAMS32-wp2). Measuring gender stereotypes, sexism (Swim et al., 1995; Levant et al, 2013, Touglas et al., 1995; Walter, 2018; Zehnter et alm 2021), and homophobia (Chonody, 2013). Finally, I added the items of conservatism vs progressivism (items: FAMS45a_wp2 to FAMS46c_wp2) that may mediate political attitude (Niessen et al, 2019). I chose this panel to have representative elements that constitute the perception of the social rules of society in the sense of how men and women should behave, what constitutes a family and love, and the possibility of changing these criteria. 
 
-[^note1]: As a 2-week miniproject, I largly selected the items by relevant theme. For an official project, a selection more litterature-grouneded would be needed (plus additional coders to validate the selection).
+[^note1]: As a 2-week miniproject, I largely selected the items by relevant theme. For an official project, a selection more literature-grounded would be needed (plus additional coders to validate the selection).
 
 ### Dependent variables
 
@@ -56,7 +30,7 @@ To assess the predictability of this scale, I decided to use the items of attitu
 
 So, this study, by using a gender ideology scale instead of only binary gender identity, could better explain the difference among the individuals with control variables including 1) knowledge of ART, 2) parental status, and 3) intention to have children. 
 
-In terms of scale, in addition to the gender indicator measurement and the gender ideology attitude, the socio-demographic information also needs to be taken into consideration, as it also influences gender practice. For example, Salah et al observed that in Switzerland the housework sharing was more explained by the economic capital than by the individual’s ideology (2017). 
+In terms of scale, in addition to the gender indicator measurement and the gender ideology attitude, the socio-demographic information also needs to be taken into consideration, as it also influences gender practice. For example, Salah et al observed that in Switzerland, the housework sharing was more explained by the economic capital than by the individual’s ideology (2017). 
 
 So, this study will fill a gap concerning the definition of political attitude using gender indicators. and explain the difference in adhesion for ART. 
 
@@ -75,7 +49,7 @@ Specifically, this study aims to:
 The hypothesis is that Gender ideology factors will explain significantly more variance than binary gender alone, and will retain significant predictive power even after controlling for socio-demographic and ART control variables. 
 
 
-## modeling data: 
+## Modeling data: 
 
 This project is divided into two parts: 
 
@@ -88,7 +62,7 @@ In this document, I focus on the first part.
 
 I use some r packages: (explain why)
 
-* heaven (to read data as they are in .sav)
+* haven (to read data as they are in .sav)
 * labelled (to manage NA according to user-defined missing values)
 * ggplot2 (general graphic visualization)
 * dplyr, tidyr, purrr (to manipulate, reshape, and summarise the data)
