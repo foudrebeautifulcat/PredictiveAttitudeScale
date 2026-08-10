@@ -118,7 +118,7 @@ tradition_vars <- df_complet %>%
   select(matches("^FAMS(4[5-6])[a-z]?_wp2$")) %>%
   mutate(across(everything(), ~ as_factor(., ordered = TRUE)))
 
-# --- Combiner tous les items ---
+# --- Combine all items ---
 all_items <- bind_cols(
   famille_vars,
   ideologie_vars,
