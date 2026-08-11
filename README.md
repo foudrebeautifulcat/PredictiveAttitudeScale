@@ -60,7 +60,7 @@ reproduction.
 
 In this document, I focus on the first part. 
 
-I use some r packages: (explain why)
+I use some r packages: (
 
 * haven (to read data as they are in .sav)
 * labelled (to manage NA according to user-defined missing values)
@@ -98,7 +98,7 @@ df_complet <- df %>%
   filter(!is.na(complr_wp2))
 
 # make sure the number of participants is right: (should be 1684)
-cat("Nombre de répondants complets:", nrow(df_complet), "/n")
+cat("Nombre de répondants complets:", nrow(df_complet))
 
 # attribute NA
 library(labelled)
@@ -125,7 +125,7 @@ all_items <- bind_cols(
   tradition_vars
 )
 
-cat("total items:", ncol(all_items), "/n")
+cat("total items:", ncol(all_items)")
 # total items: 73
 
 # SPLIT EFA / CFA 
@@ -137,8 +137,8 @@ half_n <- floor(n / 2)
 all_items_efa <- all_items[indices[1:half_n], ]
 all_items_cfa <- all_items[indices[(half_n + 1):n], ]
 
-cat("EFA sample: n =", nrow(all_items_efa), "/n")
-cat("CFA sample : n =", nrow(all_items_cfa), "/n")
+cat("EFA sample: n =", nrow(all_items_efa))
+cat("CFA sample : n =", nrow(all_items_cfa))
 
 # select only scale from scale of 4 to 7 for simplify the calculation and use hetcore().
 all_items_efa <- all_items_efa %>%
@@ -146,7 +146,7 @@ all_items_efa <- all_items_efa %>%
 #n_dstrict = more consise equivalent to nrow(unique)
 # ~ in tidyverse means function(x) n_distinct(x)
 # "." very tested collumn (like x)
-cat("Total number of items after filtering:", ncol(all_items_efa), "/n")
+cat("Total number of items after filtering:", ncol(all_items_efa))
 
 
 
@@ -206,7 +206,7 @@ identify_weak_variance <- function(data) {
 }
 
 
-cat("/n=== VARIANCE ANALYSIS ===/n")
+cat("\n=== VARIANCE ANALYSIS ===\n")
 result_variance <- identify_weak_variance(all_items_efa)
 
 
@@ -231,10 +231,10 @@ if(nrow(result_variance$weak_items) > 0) {
   print(items_weak_var_details)
   
   items_weak_variance <- result_variance$weak_items$item
-  cat("/nNumber of items with low variance:", length(items_weak_variance), "/n")
+  cat("\nNumber of items with low variance:", length(items_weak_variance), "\n")
   
 } else {
-  cat("No items with low variance were detected./n")
+  cat("No items with low variance were detected.\n")
   items_weak_variance <- character(0)
 }
 
@@ -242,12 +242,12 @@ if(nrow(result_variance$weak_items) > 0) {
 all_items_clean <- all_items_efa %>%
   select(-any_of(items_weak_variance))
 
-cat("/nItems after cleaning:", ncol(all_items_clean), "/n")
+cat("\nItems after cleaning:", ncol(all_items_clean), "\n")
 
 
 
 # correlation matrix
-cat("/n=== CALCULATION OF POLYCHORIC CORRELATIONS ===/n")
+cat("\n=== CALCULATION OF POLYCHORIC CORRELATIONS ===\n")
 
 
 # Calculate polychoric correlations
@@ -268,7 +268,7 @@ correlated_pairs <- function(cor_matrix, threshold = 0.70) {
                            arr.ind = TRUE)
   
   if(length(high_cor_indices) == 0) {
-    cat("no correlation >", threshold, "/n")
+    cat("no correlation >", threshold, "\n")
     return(NULL)
   }
   
@@ -300,14 +300,14 @@ correlated_pairs <- function(cor_matrix, threshold = 0.70) {
 }
 
 
-cat("/n=== PAIRS WITH A VERY STRONG CORRELATION (r > 0.85) ===/n")
+cat("\n=== PAIRS WITH A VERY STRONG CORRELATION (r > 0.85) ===\n")
 pairs_085 <- correlated_pairs(cor_matrix, 0.85)
 
 if(!is.null(pairs_085)) {
-  cat("Number of pairs found:", nrow(pairs_085), "/n/n")
+  cat("Number of pairs found:", nrow(pairs_085), "\n\n")
   print(pairs_085 %>% select(Item1, Item2, Correlation), n = 50)
 } else {
-  cat("no pair > 0.85/n")
+  cat("no pair > 0.85\n")
 }
 
 # which one to remove ?
@@ -347,7 +347,7 @@ if(!is.null(pairs_085)) {
   suggestions_085 <- suggest_remove(pairs_085, cor_matrix)
   
   if(!is.null(suggestions_085)) {
-    cat("/n=== REMOVAL SUGGESTIONS (r > 0.85) ===/n")
+    cat("\n=== REMOVAL SUGGESTIONS (r > 0.85) ===\n")
     print(suggestions_085 %>% 
           select(Item_remove, Item_keep, Correlation, Reason))
   }
@@ -363,8 +363,8 @@ if(!is.null(suggestions_085)) {
     pull(Item_remove) %>%
     unique()
   
-  cat("/n=== ITEMS SUGGESTED FOR REMOVAL ===/n")
-  cat("Total:", length(items_suggested_removal), "items/n/n")
+  cat("\n=== ITEMS SUGGESTED FOR REMOVAL ===\n")
+  cat("Total:", length(items_suggested_removal), "items\n\n")
   
   removal_details <- data.frame(
     Item = items_suggested_removal,
@@ -374,7 +374,7 @@ if(!is.null(suggestions_085)) {
   )
   print(removal_details)
 } else {
-  cat("/n=== NO REDUNDANT ITEMS (r > 0.85) ===/n")
+  cat("\n=== NO REDUNDANT ITEMS (r > 0.85) ===\n")
 }
 
 
@@ -384,17 +384,16 @@ all_items_final <- all_items_clean %>%
   select(-any_of(items_suggested_removal))
 
 
-cat("Initial items:                 ", ncol(all_items_efa), "/n")
-cat("Removed (low variance):        ", length(items_weak_variance), "/n")
-cat("Removed (redundancy r>0.85):   ", length(items_suggested_removal), "/n")
-cat("Final items:                   ", ncol(all_items_final), "/n")
-cat("/nPercentage retained:", 
-    round(100 * ncol(all_items_final) / ncol(all_items_efa), 1), "%/n")
+cat("Initial items:                 ", ncol(all_items_efa), "\n")
+cat("Removed (low variance):        ", length(items_weak_variance), "\n")
+cat("Removed (redundancy r>0.85):   ", length(items_suggested_removal), "\n")
+cat("Final items:                   ", ncol(all_items_final), "\n")
+cat("\nPercentage retained:", 
+    round(100 * ncol(all_items_final) / ncol(all_items_efa), 1), "%\n")
 
 
 
 # Note that the redundancy-removal procedure evaluates highly correlated item pairs independently; it does not fully account for potential correlation chains (e.g., item A highly correlated with B, and B with C, without A and C being directly correlated above threshold), which could be verified through iterative or graph-based redundancy checks in a more exhaustive analysis.
-
 
 ```
 
